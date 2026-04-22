@@ -1,0 +1,27 @@
+name: workout_calendar_flutter
+description: Flutter rewrite of the Workout Calendar app using a feature-based architecture.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.7.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_riverpod: ^3.3.1
+  go_router: ^17.2.2
+  intl: ^0.20.2
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/data/
