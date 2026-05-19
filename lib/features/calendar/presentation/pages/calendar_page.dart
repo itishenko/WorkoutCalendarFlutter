@@ -40,6 +40,7 @@ class CalendarPage extends ConsumerWidget {
           gradient: AppTheme.pageGradient,
         ),
         child: SafeArea(
+          bottom: false,
           child: calendarState.when(
             loading: () => const AppLoadingView(),
             error: (Object error, StackTrace stackTrace) {
@@ -50,6 +51,7 @@ class CalendarPage extends ConsumerWidget {
             },
             data: (CalendarState state) {
               final selectedDayWorkouts = state.selectedDayWorkouts;
+              final bottomInset = MediaQuery.paddingOf(context).bottom;
 
               return RefreshIndicator(
                 onRefresh: controller.reload,
@@ -125,6 +127,12 @@ class CalendarPage extends ConsumerWidget {
                           ),
                         ),
                       ),
+                    SliverPadding(
+                      padding: EdgeInsets.only(bottom: bottomInset),
+                      sliver: const SliverToBoxAdapter(
+                        child: SizedBox.shrink(),
+                      ),
+                    ),
                   ],
                 ),
               );

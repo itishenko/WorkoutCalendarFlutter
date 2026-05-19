@@ -45,21 +45,26 @@ class WorkoutDetailsPage extends ConsumerWidget {
         decoration: const BoxDecoration(
           gradient: AppTheme.pageGradient,
         ),
-        child: SafeArea(
-          top: false,
-          child: details.when(
-            loading: () => const AppLoadingView(),
+        child: details.when(
+            loading: () => const SafeArea(
+              top: false,
+              child: AppLoadingView(),
+            ),
             error: (Object error, StackTrace stackTrace) {
-              return AppErrorView(message: error.readableMessage);
+              return SafeArea(
+                top: false,
+                child: AppErrorView(message: error.readableMessage),
+              );
             },
             data: (WorkoutDetailsState state) {
               final activityStyle =
                   WorkoutActivityStyle.fromType(state.metadata.activityType);
               final chartPoints = state.diagramData?.data ?? const [];
               final hasHeartRateData = chartPoints.isNotEmpty;
+              final bottomInset = MediaQuery.paddingOf(context).bottom;
 
               return ListView(
-                padding: const EdgeInsets.fromLTRB(20, 20, 20, 32),
+                padding: EdgeInsets.fromLTRB(20, 20, 20, 32 + bottomInset),
                 children: <Widget>[
                   DecoratedBox(
                     decoration: BoxDecoration(
@@ -243,7 +248,6 @@ class WorkoutDetailsPage extends ConsumerWidget {
               );
             },
           ),
-        ),
       ),
     );
   }
