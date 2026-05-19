@@ -59,7 +59,7 @@ class WorkoutDetailsPage extends ConsumerWidget {
               final hasHeartRateData = chartPoints.isNotEmpty;
 
               return ListView(
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
+                padding: const EdgeInsets.fromLTRB(20, 20, 20, 32),
                 children: <Widget>[
                   DecoratedBox(
                     decoration: BoxDecoration(
