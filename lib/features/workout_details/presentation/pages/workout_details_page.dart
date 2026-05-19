@@ -110,21 +110,30 @@ class WorkoutDetailsPage extends ConsumerWidget {
                                   size: 18,
                                   color: activityStyle.color,
                                 ),
-                                label: Text(activityStyle.label),
+                                label: Text(
+                                  activityStyle.label,
+                                  style: const TextStyle(color: Colors.black),
+                                ),
                               ),
                               Chip(
                                 avatar: const Icon(
                                   Icons.water_drop_outlined,
                                   size: 18,
                                 ),
-                                label: Text(state.humidityLabel),
+                                label: Text(
+                                  state.humidityLabel,
+                                  style: const TextStyle(color: Colors.black),
+                                ),
                               ),
                               Chip(
                                 avatar: const Icon(
                                   Icons.thermostat_rounded,
                                   size: 18,
                                 ),
-                                label: Text(state.temperatureLabel),
+                                label: Text(
+                                  state.temperatureLabel,
+                                  style: const TextStyle(color: Colors.black),
+                                ),
                               ),
                             ],
                           ),
